@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Products - LapTech System</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 font-sans">
+
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar Navigation -->
+        <div class="w-64 bg-gradient-to-b from-slate-900 to-slate-950 text-white flex flex-col justify-between hidden md:flex shadow-2xl">
+            <div class="p-6">
+                <h1 class="text-3xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mb-8"><i class="fa-solid fa-laptop"></i> LapTech</h1>
+                <nav class="space-y-3">
+                    <a href="dashboard.html" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-300 hover:bg-slate-800 hover:text-cyan-400 font-medium transition">
+                        <i class="fa-solid fa-chart-pie w-5"></i> <span>Dashboard</span>
+                    </a>
+                    <a href="sales.html" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-300 hover:bg-slate-800 hover:text-cyan-400 font-medium transition">
+                        <i class="fa-solid fa-cart-shopping w-5"></i> <span>Laptop Sales</span>
+                    </a>
+                    <a href="purchase.html" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-300 hover:bg-slate-800 hover:text-cyan-400 font-medium transition">
+                        <i class="fa-solid fa-bag-shopping w-5"></i> <span>Laptop Purchase</span>
+                    </a>
+                    <a href="stock.html" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-300 hover:bg-slate-800 hover:text-cyan-400 font-medium transition">
+                        <i class="fa-solid fa-boxes-stacked w-5"></i> <span>Inventory / Stock</span>
+                    </a>
+                    <a href="products.html" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-cyan-500 text-white font-medium transition hover:shadow-lg">
+                        <i class="fa-solid fa-cube w-5"></i> <span>Products</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="p-6 border-t border-slate-800 text-xs text-gray-500 text-center">
+                &copy; 2026 LapTech Management
+            </div>
+        </div>
+
+        <div class="flex-1 flex flex-col overflow-y-auto bg-gradient-to-br from-gray-50 to-gray-100">
+            <header class="bg-white shadow-lg px-6 py-5 flex justify-between items-center border-b-2 border-cyan-200">
+                <h2 class="text-2xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">Available Laptop Products</h2>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-800 font-bold px-4 py-1.5 rounded-full shadow-sm">Catalog</span>
+                </div>
+            </header>
+
+            <main class="p-8 max-w-7xl w-full mx-auto">
+                <!-- Products Hero Image -->
+                <div class="hero-section relative mb-8 overflow-hidden rounded-3xl">
+                    <img src="images/laptop-hero.svg" alt="Laptop Products" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-r from-cyan-900/30 to-blue-900/30"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center text-white z-10">
+                            <h2 class="text-5xl font-bold mb-2">Our Laptop Collection</h2>
+                            <p class="text-2xl opacity-90">Premium laptops for every business need</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Available Products Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    
+                    <!-- Dell XPS Product Card -->
+                    <div class="card-hover bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                        <div class="aspect-square bg-gradient-to-br from-emerald-50 to-green-50 flex items-center justify-center p-4">
+                            <img src="images/dell-xps.svg" alt="Dell XPS 13" class="w-full h-full object-contain">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">Dell XPS 13</h3>
+                            <p class="text-sm text-gray-600 mb-4">Premium ultrabook with stunning display and performance</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-emerald-600 font-bold">Rs. 1,25,000</span>
+                                <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full font-semibold">In Stock</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HP EliteBook Product Card -->
+                    <div class="card-hover bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                        <div class="aspect-square bg-gradient-to-br from-amber-50 to-orange-50 flex items-center justify-center p-4">
+                            <img src="images/hp-elitebook.svg" alt="HP EliteBook 840" class="w-full h-full object-contain">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">HP EliteBook 840</h3>
+                            <p class="text-sm text-gray-600 mb-4">Business-class laptop with enterprise security features</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-amber-600 font-bold">Rs. 95,000</span>
+                                <span class="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded-full font-semibold">Available</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lenovo ThinkPad Product Card -->
+                    <div class="card-hover bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                        <div class="aspect-square bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center p-4">
+                            <img src="images/lenovo-thinkpad.svg" alt="Lenovo ThinkPad" class="w-full h-full object-contain">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">Lenovo ThinkPad</h3>
+                            <p class="text-sm text-gray-600 mb-4">Rugged professional laptop with legendary keyboard</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-indigo-600 font-bold">Rs. 85,000</span>
+                                <span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full font-semibold">Low Stock</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Generic Laptop Product Card -->
+                    <div class="card-hover bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                        <div class="aspect-square bg-gradient-to-br from-cyan-50 to-blue-50 flex items-center justify-center p-4">
+                            <img src="images/laptop-hero.svg" alt="Generic Laptop" class="w-full h-full object-contain">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">Professional Laptop</h3>
+                            <p class="text-sm text-gray-600 mb-4">High-performance laptop for creative professionals</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-cyan-600 font-bold">Rs. 1,20,000</span>
+                                <span class="text-xs bg-cyan-100 text-cyan-800 px-2 py-1 rounded-full font-semibold">In Stock</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Product Specifications -->
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 overflow-x-auto">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Product Specifications</h3>
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b-2 border-cyan-200 text-gray-600 text-sm font-bold">
+                                <th class="pb-4 uppercase tracking-wider">Model</th>
+                                <th class="pb-4 uppercase tracking-wider">Processor</th>
+                                <th class="pb-4 uppercase tracking-wider">RAM</th>
+                                <th class="pb-4 uppercase tracking-wider">Storage</th>
+                                <th class="pb-4 uppercase tracking-wider">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600 text-sm divide-y divide-gray-100">
+                            <tr class="hover:bg-cyan-50 transition">
+                                <td class="py-4 font-semibold text-gray-800">Dell XPS 13</td>
+                                <td class="py-4">Intel i7 12th Gen</td>
+                                <td class="py-4">16GB DDR4</td>
+                                <td class="py-4">512GB SSD</td>
+                                <td class="py-4 text-emerald-600 font-bold">Rs. 1,25,000</td>
+                            </tr>
+                            <tr class="hover:bg-cyan-50 transition">
+                                <td class="py-4 font-semibold text-gray-800">HP EliteBook 840</td>
+                                <td class="py-4">Intel i5 12th Gen</td>
+                                <td class="py-4">8GB DDR4</td>
+                                <td class="py-4">256GB SSD</td>
+                                <td class="py-4 text-amber-600 font-bold">Rs. 95,000</td>
+                            </tr>
+                            <tr class="hover:bg-cyan-50 transition">
+                                <td class="py-4 font-semibold text-gray-800">Lenovo ThinkPad</td>
+                                <td class="py-4">Intel i7 11th Gen</td>
+                                <td class="py-4">16GB DDR4</td>
+                                <td class="py-4">512GB SSD</td>
+                                <td class="py-4 text-indigo-600 font-bold">Rs. 85,000</td>
+                            </tr>
+                            <tr class="hover:bg-cyan-50 transition">
+                                <td class="py-4 font-semibold text-gray-800">Professional Laptop</td>
+                                <td class="py-4">AMD Ryzen 7</td>
+                                <td class="py-4">16GB DDR5</td>
+                                <td class="py-4">1TB SSD</td>
+                                <td class="py-4 text-cyan-600 font-bold">Rs. 1,20,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

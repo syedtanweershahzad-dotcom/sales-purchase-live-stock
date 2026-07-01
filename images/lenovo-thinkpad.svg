@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" width="200" height="150">
+  <defs>
+    <linearGradient id="lenevoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="200" height="150" fill="#f0f9ff"/>
+  
+  <!-- Laptop -->
+  <rect x="20" y="20" width="160" height="90" rx="8" fill="#1e293b" stroke="url(#lenevoGrad)" stroke-width="2"/>
+  <rect x="25" y="25" width="150" height="80" rx="6" fill="url(#lenevoGrad)" opacity="0.15"/>
+  
+  <!-- Lenovo Logo Area -->
+  <text x="100" y="72" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#8b5cf6" text-anchor="middle">LENOVO</text>
+  <text x="100" y="85" font-family="Arial, sans-serif" font-size="8" fill="#a78bfa" text-anchor="middle">ThinkPad Series</text>
+  
+  <!-- Base -->
+  <rect x="35" y="110" width="130" height="6" rx="3" fill="#1e293b"/>
+  <polygon points="40,116 160,116 165,135 35,135" fill="#1e293b"/>
+  
+  <!-- Details -->
+  <circle cx="60" cy="122" r="2" fill="#8b5cf6"/>
+  <circle cx="100" cy="122" r="2" fill="#a78bfa"/>
+  <circle cx="140" cy="122" r="2" fill="#8b5cf6"/>
+</svg>

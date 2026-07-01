@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Laptop Sales System</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 font-sans">
+
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar Navigation -->
+        <div class="w-64 bg-gradient-to-b from-slate-900 to-slate-950 text-white flex flex-col justify-between hidden md:flex shadow-2xl">
+            <div class="p-6">
+                <h1 class="text-3xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mb-8"><i class="fa-solid fa-laptop"></i> LapTech</h1>
+                <nav class="space-y-3">
+                    <a href="dashboard.html" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-cyan-500 text-white font-medium transition hover:shadow-lg">
+                        <i class="fa-solid fa-chart-pie w-5"></i> <span>Dashboard</span>
+                    </a>
+                    <a href="sales.html" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-300 hover:bg-slate-800 hover:text-cyan-400 font-medium transition">
+                        <i class="fa-solid fa-cart-shopping w-5"></i> <span>Laptop Sales</span>
+                    </a>
+                    <a href="purchase.html" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-300 hover:bg-slate-800 hover:text-cyan-400 font-medium transition">
+                        <i class="fa-solid fa-bag-shopping w-5"></i> <span>Laptop Purchase</span>
+                    </a>
+                    <a href="stock.html" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-300 hover:bg-slate-800 hover:text-cyan-400 font-medium transition">
+                        <i class="fa-solid fa-boxes-stacked w-5"></i> <span>Inventory / Stock</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="p-6 border-t border-slate-800 text-xs text-gray-500 text-center">
+                &copy; 2026 LapTech Management
+            </div>
+        </div>
+
+        <div class="flex-1 flex flex-col overflow-y-auto bg-gradient-to-br from-gray-50 to-gray-100">
+            <header class="bg-white shadow-lg px-6 py-5 flex justify-between items-center border-b-2 border-cyan-200">
+                <h2 class="text-2xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">Dashboard Overview</h2>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-800 font-bold px-4 py-1.5 rounded-full shadow-sm">Admin Panel</span>
+                </div>
+            </header>
+
+            <main class="p-8 max-w-7xl w-full mx-auto">
+                <!-- Hero Section -->
+                <div class="hero-section relative mb-8 overflow-hidden">
+                    <img src="images/dashboard-hero.svg" alt="Dashboard" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-r from-cyan-900/40 to-blue-900/40"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center text-white z-10">
+                            <h2 class="text-5xl font-bold mb-2">Dashboard Overview</h2>
+                            <p class="text-2xl opacity-90">Real-time business analytics and insights</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="card-hover bg-white p-6 rounded-2xl shadow-lg border border-gray-100 flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500 font-medium uppercase tracking-wide">Total Sales Today</p>
+                            <h3 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-600 mt-2">Rs. <span id="dash-sales">1,25,000</span></h3>
+                        </div>
+                        <div class="p-4 bg-emerald-100 text-emerald-600 rounded-2xl shadow-md"><i class="fa-solid fa-arrow-up-trend-line text-2xl"></i></div>
+                    </div>
+                    <div class="card-hover bg-white p-6 rounded-2xl shadow-lg border border-gray-100 flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500 font-medium uppercase tracking-wide">Total Purchases</p>
+                            <h3 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600 mt-2">Rs. <span id="dash-purchase">3,40,000</span></h3>
+                        </div>
+                        <div class="p-4 bg-amber-100 text-amber-600 rounded-2xl shadow-md"><i class="fa-solid fa-basket-shopping text-2xl"></i></div>
+                    </div>
+                    <div class="card-hover bg-white p-6 rounded-2xl shadow-lg border border-gray-100 flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500 font-medium uppercase tracking-wide">Available Stock</p>
+                            <h3 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600 mt-2"><span id="dash-stock">42</span> Units</h3>
+                        </div>
+                        <div class="p-4 bg-cyan-100 text-cyan-600 rounded-2xl shadow-md"><i class="fa-solid fa-laptop text-2xl"></i></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

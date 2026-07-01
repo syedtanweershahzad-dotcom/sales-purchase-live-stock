@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LapTech - Laptop Sales & Purchase System</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Smooth transitions for interactive state elements */
+        .transition-all-custom {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-slate-950 via-slate-900 to-zinc-950 font-sans text-slate-100 min-h-screen overflow-x-hidden">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <aside class="w-68 bg-slate-950/60 backdrop-blur-xl border-r border-slate-800 flex flex-col justify-between hidden md:flex shadow-2xl z-20">
+            <div class="p-6">
+                <div class="flex items-center space-x-3 mb-10">
+                    <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white shadow-[0_0_20px_rgba(6,182,212,0.4)]">
+                        <i class="fa-solid fa-laptop text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-black tracking-wider bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">LapTech</h1>
+                        <p class="text-[10px] text-cyan-400 font-bold tracking-widest uppercase">Management v1.0</p>
+                    </div>
+                </div>
+
+                <nav class="space-y-2">
+                    <button id="nav-home" onclick="switchPage('home')" class="nav-btn w-full flex items-center space-x-3 px-4 py-3.5 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-medium shadow-lg shadow-cyan-900/30 transition-all-custom">
+                        <i class="fa-solid fa-house w-5 text-center"></i> <span>Home Portal</span>
+                    </button>
+                    <button id="nav-dashboard" onclick="switchPage('dashboard')" class="nav-btn w-full flex items-center space-x-3 px-4 py-3.5 rounded-xl text-slate-400 hover:bg-slate-900 hover:text-cyan-400 font-medium transition-all-custom">
+                        <i class="fa-solid fa-chart-pie w-5 text-center"></i> <span>Dashboard Analytics</span>
+                    </button>
+                    <button id="nav-sales" onclick="switchPage('sales')" class="nav-btn w-full flex items-center space-x-3 px-4 py-3.5 rounded-xl text-slate-400 hover:bg-slate-900 hover:text-emerald-400 font-medium transition-all-custom">
+                        <i class="fa-solid fa-cart-shopping w-5 text-center"></i> <span>Laptop Sales</span>
+                    </button>
+                    <button id="nav-purchase" onclick="switchPage('purchase')" class="nav-btn w-full flex items-center space-x-3 px-4 py-3.5 rounded-xl text-slate-400 hover:bg-slate-900 hover:text-amber-400 font-medium transition-all-custom">
+                        <i class="fa-solid fa-bag-shopping w-5 text-center"></i> <span>Stock Purchases</span>
+                    </button>
+                    <button id="nav-stock" onclick="switchPage('stock')" class="nav-btn w-full flex items-center space-x-3 px-4 py-3.5 rounded-xl text-slate-400 hover:bg-slate-900 hover:text-indigo-400 font-medium transition-all-custom">
+                        <i class="fa-solid fa-boxes-stacked w-5 text-center"></i> <span>Live Inventory</span>
+                    </button>
+                </nav>
+            </div>
+            
+            <div class="p-6 border-t border-slate-900 text-[11px] text-slate-500 font-medium tracking-wide bg-slate-950/40 text-center">
+                &copy; 2026 LapTech System Suite
+            </div>
+        </aside>
+
+        <div class="flex-1 flex flex-col overflow-y-auto bg-slate-900/40">
+            
+            <header class="bg-slate-950/40 backdrop-blur-md px-8 py-5 flex justify-between items-center border-b border-slate-800 sticky top-0 z-10">
+                <div class="flex items-center space-x-3">
+                    <h2 id="page-title" class="text-xl font-bold tracking-tight text-white">Welcome Portal</h2>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-xs bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-bold px-4 py-1.5 rounded-full tracking-wider uppercase shadow-inner">
+                        <i class="fa-solid fa-circle text-[8px] mr-1.5 align-middle animate-pulse"></i>Admin Active
+                    </span>
+                </div>
+            </header>
+
+            <main class="p-8 max-w-7xl w-full mx-auto flex-1">
+
+                <div id="page-home" class="page-content space-y-12 animate-fadeIn">
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-8 rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+                        
+                        <div class="lg:col-span-7 space-y-6 relative z-10">
+                            <span class="text-xs font-extrabold tracking-widest uppercase text-cyan-400 bg-cyan-500/10 px-3 py-1.5 rounded-md border border-cyan-500/20">Next-Gen Workspace</span>
+                            <h2 class="text-4xl lg:text-5xl font-black tracking-tight leading-none bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                                Laptop Sales & Purchase <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Console</span>
+                            </h2>
+                            <p class="text-base text-slate-400 font-medium leading-relaxed">
+                                An integrated processing platform to handle supplier sourcing, customer pipeline operations, and localized inventory evaluation. Track active brands, dynamic stock level counts, and incoming asset margins.
+                            </p>
+                            
+                            <div class="pt-4 border-t border-slate-800/60">
+                                <p class="text-[10px] uppercase font-bold text-slate-500 tracking-wider mb-3">Authorized Fleet Handled</p>
+                                <div class="flex flex-wrap gap-4 text-xs font-bold text-slate-400">
+                                    <span class="bg-slate-900 px-3 py-2 rounded-xl border border-slate-800 flex items-center gap-1.5"><i class="fa-brands fa-apple text-white"></i> Apple</span>
+                                    <span class="bg-slate-900 px-3 py-2 rounded-xl border border-slate-800 flex items-center gap-1.5"><i class="fa-solid fa-h text-cyan-400"></i> HP Elite</span>
+                                    <span class="bg-slate-900 px-3 py-2 rounded-xl border border-slate-800 flex items-center gap-1.5"><i class="fa-solid fa-d text-blue-400"></i> Dell Pro</span>
+                                    <span class="bg-slate-900 px-3 py-2 rounded-xl border border-slate-800 flex items-center gap-1.5"><i class="fa-solid fa-l text-red-500"></i> Lenovo Think</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 relative flex justify-center">
+                            <div class="w-full max-w-[360px] aspect-square rounded-2xl bg-gradient-to-tr from-cyan-500/20 to-blue-600/10 p-2 border border-slate-800 shadow-2xl relative group">
+                                <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Premium Laptops Collection" 
+                                     class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent rounded-xl"></div>
+                                <span class="absolute bottom-4 left-4 text-xs font-bold bg-slate-950/80 text-cyan-400 border border-slate-800 px-3 py-1.5 rounded-lg backdrop-blur-sm">
+                                    <i class="fa-solid fa-shield-halved mr-1"></i> Checked Hardware Stock
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-sm font-bold tracking-wider uppercase text-slate-400 flex items-center"><i class="fa-solid fa-layer-group text-cyan-400 mr-2"></i> Current Live Catalogue Preview</h4>
+                            <span class="text-xs text-slate-500 font-medium">Click on quick links below to jump into details</span>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-slate-950/40 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition-all-custom shadow-xl">
+                                <div class="h-44 overflow-hidden relative group">
+                                    <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=500&q=80" alt="Dell XPS Series" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-70">
+                                    <span class="absolute top-3 right-3 bg-blue-500 text-white font-extrabold text-[10px] px-2.5 py-1 rounded-md uppercase tracking-wider">Premium Tech</span>
+                                </div>
+                                <div class="p-5 space-y-3">
+                                    <h5 class="text-base font-bold text-white">Dell XPS 13 / 15 Series</h5>
+                                    <p class="text-xs text-slate-400 leading-relaxed">InfinityEdge Display, Core i7/i9 variants, tailored for heavy programming and graphics processing pipelines.</p>
+                                    <div class="flex items-center justify-between text-xs font-mono font-bold text-cyan-400 pt-2 border-t border-slate-900">
+                                        <span>Avg Valuation</span>
+                                        <span class="text-white">Rs. 125,000+</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-950/40 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition-all-custom shadow-xl">
+                                <div class="h-44 overflow-hidden relative group">
+                                    <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=500&q=80" alt="HP EliteBook Series" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-70">
+                                    <span class="absolute top-3 right-3 bg-cyan-500 text-slate-950 font-extrabold text-[10px] px-2.5 py-1 rounded-md uppercase tracking-wider">Enterprise Choice</span>
+                                </div>
+                                <div class="p-5 space-y-3">
+                                    <h5 class="text-base font-bold text-white">HP EliteBook G5 / G8 Lines</h5>
+                                    <p class="text-xs text-slate-400 leading-relaxed">Aluminium Sleek chassis, absolute security suite built-in, ultimate choice for corporate manager nodes.</p>
+                                    <div class="flex items-center justify-between text-xs font-mono font-bold text-cyan-400 pt-2 border-t border-slate-900">
+                                        <span>Avg Valuation</span>
+                                        <span class="text-white">Rs. 80,000+</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-950/40 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition-all-custom shadow-xl">
+                                <div class="h-44 overflow-hidden relative group">
+                                    <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&w=500&q=80" alt="Apple MacBook Pro" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-70">
+                                    <span class="absolute top-3 right-3 bg-indigo-600 text-white font-extrabold text-[10px] px-2.5 py-1 rounded-md uppercase tracking-wider">Silicon Power</span>
+                                </div>
+                                <div class="p-5 space-y-3">
+                                    <h5 class="text-base font-bold text-white">Apple MacBook Pro (M-Series)</h5>
+                                    <p class="text-xs text-slate-400 leading-relaxed">Liquid Retina XDR arrays, long-lasting productivity operations, fluid optimization for full-stack build tasks.</p>
+                                    <div class="flex items-center justify-between text-xs font-mono font-bold text-cyan-400 pt-2 border-t border-slate-900">
+                                        <span>Avg Valuation</span>
+                                        <span class="text-white">Rs. 210,000+</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div onclick="switchPage('dashboard')" class="cursor-pointer bg-gradient-to-br from-slate-900 to-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/50 shadow-xl group transition-all-custom hover:-translate-y-1">
+                            <div class="h-12 w-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-all-custom"><i class="fa-solid fa-chart-pie"></i></div>
+                            <h3 class="text-lg font-bold mb-1 text-white">Dashboard</h3>
+                            <p class="text-xs text-slate-400 mb-4 leading-relaxed">Real-time valuation summaries and structural insights.</p>
+                            <span class="text-xs font-bold text-cyan-400 flex items-center group-hover:text-cyan-300">Open Panel <i class="fa-solid fa-arrow-right ml-1.5 transform group-hover:translate-x-1 transition"></i></span>
+                        </div>
+
+                        <div onclick="switchPage('sales')" class="cursor-pointer bg-gradient-to-br from-slate-900 to-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/50 shadow-xl group transition-all-custom hover:-translate-y-1">
+                            <div class="h-12 w-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-all-custom"><i class="fa-solid fa-cart-shopping"></i></div>
+                            <h3 class="text-lg font-bold mb-1 text-white">Laptop Sales</h3>
+                            <p class="text-xs text-slate-400 mb-4 leading-relaxed">Process consumer sales transactions securely.</p>
+                            <span class="text-xs font-bold text-emerald-400 flex items-center group-hover:text-emerald-300">Open Panel <i class="fa-solid fa-arrow-right ml-1.5 transform group-hover:translate-x-1 transition"></i></span>
+                        </div>
+
+                        <div onclick="switchPage('purchase')" class="cursor-pointer bg-gradient-to-br from-slate-900 to-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 shadow-xl group transition-all-custom hover:-translate-y-1">
+                            <div class="h-12 w-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-all-custom"><i class="fa-solid fa-bag-shopping"></i></div>
+                            <h3 class="text-lg font-bold mb-1 text-white">Purchases</h3>
+                            <p class="text-xs text-slate-400 mb-4 leading-relaxed">Log incoming supplier bulk procurement lines.</p>
+                            <span class="text-xs font-bold text-amber-400 flex items-center group-hover:text-amber-300">Open Panel <i class="fa-solid fa-arrow-right ml-1.5 transform group-hover:translate-x-1 transition"></i></span>
+                        </div>
+
+                        <div onclick="switchPage('stock')" class="cursor-pointer bg-gradient-to-br from-slate-900 to-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-indigo-500/50 shadow-xl group transition-all-custom hover:-translate-y-1">
+                            <div class="h-12 w-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-all-custom"><i class="fa-solid fa-boxes-stacked"></i></div>
+                            <h3 class="text-lg font-bold mb-1 text-white">Live Stock</h3>
+                            <p class="text-xs text-slate-400 mb-4 leading-relaxed">Verify structural real-time layout balances.</p>
+                            <span class="text-xs font-bold text-indigo-400 flex items-center group-hover:text-indigo-300">Open Panel <i class="fa-solid fa-arrow-right ml-1.5 transform group-hover:translate-x-1 transition"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page-dashboard" class="page-content hidden space-y-8 animate-fadeIn">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-slate-950/40 backdrop-blur-md p-6 rounded-2xl border border-slate-800 flex items-center justify-between shadow-xl">
+                            <div>
+                                <p class="text-xs text-slate-400 font-bold tracking-wider uppercase">Aggregate Revenue Today</p>
+                                <h3 class="text-2xl font-extrabold text-emerald-400 mt-2">Rs. <span id="dash-sales">0</span></h3>
+                            </div>
+                            <div class="p-4 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-xl"><i class="fa-solid fa-chart-line text-xl"></i></div>
+                        </div>
+                        <div class="bg-slate-950/40 backdrop-blur-md p-6 rounded-2xl border border-slate-800 flex items-center justify-between shadow-xl">
+                            <div>
+                                <p class="text-xs text-slate-400 font-bold tracking-wider uppercase">Sourcing Investment</p>
+                                <h3 class="text-2xl font-extrabold text-amber-400 mt-2">Rs. <span id="dash-purchase">0</span></h3>
+                            </div>
+                            <div class="p-4 bg-amber-500/10 text-amber-400 border border-amber-500/20 rounded-xl"><i class="fa-solid fa-wallet text-xl"></i></div>
+                        </div>
+                        <div class="bg-slate-950/40 backdrop-blur-md p-6 rounded-2xl border border-slate-800 flex items-center justify-between shadow-xl">
+                            <div>
+                                <p class="text-xs text-slate-400 font-bold tracking-wider uppercase">Total Units Vaulted</p>
+                                <h3 class="text-2xl font-extrabold text-cyan-400 mt-2"><span id="dash-stock">0</span> Units</h3>
+                            </div>
+                            <div class="p-4 bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 rounded-xl"><i class="fa-solid fa-warehouse text-xl"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page-sales" class="page-content hidden space-y-8 animate-fadeIn">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="bg-slate-950/40 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-xl h-fit">
+                            <h3 class="text-base font-bold text-white mb-6 flex items-center"><i class="fa-solid fa-circle-plus text-emerald-400 mr-2"></i> Log New Outbound Sale</h3>
+                            <form id="salesForm" class="space-y-4" onsubmit="handleSale(event)">
+                                <div>
+                                    <label class="block text-[11px] font-bold text-slate-400 mb-1.5 uppercase tracking-wider">Client / Customer Handle</label>
+                                    <input type="text" id="saleCustomer" required class="w-full bg-slate-900/60 text-white px-4 py-3 border border-slate-800 rounded-xl focus:outline-none focus:border-emerald-500 transition-all-custom text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-bold text-slate-400 mb-1.5 uppercase tracking-wider">Laptop Model Designation</label>
+                                    <input type="text" id="saleModel" required class="w-full bg-slate-900/60 text-white px-4 py-3 border border-slate-800 rounded-xl focus:outline-none focus:border-emerald-500 transition-all-custom text-sm" placeholder="e.g. Dell XPS 13">
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-[11px] font-bold text-slate-400 mb-1.5 uppercase tracking-wider">Quantity</label>
+                                        <input type="number" id="saleQty" value="1" min="1" required class="w-full bg-slate-900/60 text-white px-4 py-3 border border-slate-800 rounded-xl focus:outline-none focus:border-emerald-500 transition-all-custom text-sm">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[11px] font-bold text-slate-400 mb-1.5 uppercase tracking-wider">Outbound Valuation (Rs.)</label>
+                                        <input type="number" id="salePrice" required class="w-full bg-slate-900/60 text-white px-4 py-3 border border-slate-800 rounded-xl focus:outline-none focus:border-emerald-500 transition-all-custom text-sm">
+                                    </div>
+                                </div>
+                                <button type="submit" class="w-full mt-2 bg-gradient-to-r from-emerald-600 to-teal-500 text-white text-sm font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-emerald-950/40 hover:shadow-emerald-500/20 hover:scale-[1.02] transition-all-custom cursor-pointer">Commit Transaction</button>
+                            </form>
+                        </div>
+                        
+                        <div class="lg:col-span-2 bg-slate-950/20 border border-slate-800 rounded-2xl p-6 shadow-2xl overflow-x-auto">
+                            <h3 class="text-base font-bold text-white mb-5 flex items-center"><i class="fa-solid fa-clock-rotate-left text-slate-400 mr-2"></i> Outbound Transaction History</h3>
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="border-b border-slate-800 text-slate-400 text-[11px] font-bold tracking-wider uppercase">
+                                        <th class="pb-3 pl-2">Customer Handle</th>
+                                        <th class="pb-3">Model</th>
+                                        <th class="pb-3">Qty</th>
+                                        <th class="pb-3 text-right pr-2">Total Yield</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="salesTableBody" class="text-slate-300 text-sm divide-y divide-slate-900"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page-purchase" class="page-content hidden space-y-8 animate-fadeIn">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="bg-slate-950/40 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-xl h-fit">
+                            <h3 class="text-base font-bold text-white mb-6 flex items-center"><i class="fa-solid fa-circle-plus text-amber-400 mr-2"></i> Record Inbound Purchase</h3>
+                            <form id="purchaseForm" class="space-y-4" onsubmit="handlePurchase(event)">
+                                <div>
+                                    <label class="block text-[11px] font-bold text-slate-400 mb-1.5 uppercase tracking-wider">Supplier Line / Vendor Name</label>
+                                    <input type="text" id="purVendor" required class="w-full bg-slate-900/60 text-white px-4 py-3 border border-slate-800 rounded-xl focus:outline-none focus:border-amber-500 transition-all-custom text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-bold text-slate-400 mb-1.5 uppercase tracking-wider">Laptop Model Designation</label>
+                                    <input type="text" id="purModel" required class="w-full bg-slate-900/60 text-white px-4 py-3 border border-slate-800 rounded-xl focus:outline-none focus:border-amber-500 transition-all-custom text-sm">
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-[11px] font-bold text-slate-400 mb-1.5 uppercase tracking-wider">Quantity</label>
+                                        <input type="number" id="purQty" value="1" min="1" required class="w-full bg-slate-900/60 text-white px-4 py-3 border border-slate-800 rounded-xl focus:outline-none focus:border-amber-500 transition-all-custom text-sm">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[11px] font-bold text-slate-400 mb-1.5 uppercase tracking-wider">Cost Allocation (Rs.)</label>
+                                        <input type="number" id="purPrice" required class="w-full bg-slate-900/60 text-white px-4 py-3 border border-slate-800 rounded-xl focus:outline-none focus:border-amber-500 transition-all-custom text-sm">
+                                    </div>
+                                </div>
+                                <button type="submit" class="w-full mt-2 bg-gradient-to-r from-amber-600 to-orange-500 text-white text-sm font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-amber-950/40 hover:shadow-amber-500/20 hover:scale-[1.02] transition-all-custom cursor-pointer">Commit Logistics Line</button>
+                            </form>
+                        </div>
+                        
+                        <div class="lg:col-span-2 bg-slate-950/20 border border-slate-800 rounded-2xl p-6 shadow-2xl overflow-x-auto">
+                            <h3 class="text-base font-bold text-white mb-5 flex items-center"><i class="fa-solid fa-clock-rotate-left text-slate-400 mr-2"></i> Inbound Purchase Ledger</h3>
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="border-b border-slate-800 text-slate-400 text-[11px] font-bold tracking-wider uppercase">
+                                        <th class="pb-3 pl-2">Supplier Node</th>
+                                        <th class="pb-3">Model</th>
+                                        <th class="pb-3">Qty</th>
+                                        <th class="pb-3 text-right pr-2">Total Invested</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="purchaseTableBody" class="text-slate-300 text-sm divide-y divide-slate-900"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page-stock" class="page-content hidden space-y-8 animate-fadeIn">
+                    <div class="bg-slate-950/40 backdrop-blur-md p-8 rounded-2xl border border-slate-800 shadow-xl overflow-x-auto">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-base font-bold text-white flex items-center"><i class="fa-solid fa-boxes-stacked text-indigo-400 mr-2"></i> Global Live Physical Inventory</h3>
+                            <span class="text-[10px] bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-inner">Automated Calculations Stacked</span>
+                        </div>
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="border-b border-slate-800 text-slate-400 text-[11px] font-bold tracking-wider uppercase">
+                                    <th class="pb-3 pl-2">Laptop Model Designation</th>
+                                    <th class="pb-3">Available Balance Units</th>
+                                    <th class="pb-3 text-right pr-2">System Status Flags</th>
+                                </tr>
+                            </thead>
+                            <tbody id="stockTableBody" class="text-slate-300 text-sm divide-y divide-slate-900"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Centralized Application Navigation Module
+        function switchPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-gradient-to-r', 'from-cyan-600', 'to-blue-600', 'text-white', 'shadow-lg', 'shadow-cyan-900/30');
+                btn.classList.add('text-slate-400', 'hover:bg-slate-900', 'hover:text-cyan-400');
+            });
+
+            document.getElementById(`page-${pageId}`).classList.remove('hidden');
+
+            const activeBtn = document.getElementById(`nav-${pageId}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('text-slate-400', 'hover:bg-slate-900', 'hover:text-cyan-400');
+                activeBtn.classList.add('bg-gradient-to-r', 'from-cyan-600', 'to-blue-600', 'text-white', 'shadow-lg', 'shadow-cyan-900/30');
+            }
+            
+            const headerTitles = {
+                home: "Welcome Portal",
+                dashboard: "Dashboard Analytics",
+                sales: "Laptop Sales Management",
+                purchase: "Stock Purchases Sourcing",
+                stock: "Live Inventory & Storage Balance"
+            };
+            document.getElementById('page-title').innerText = headerTitles[pageId];
+            renderAll();
+        }
+
+        function renderAll() {
+            let stockMap = {};
+            purchaseData.forEach(p => {
+                stockMap[p.model] = (stockMap[p.model] || 0) + p.qty;
+            });
+            salesData.forEach(s => {
+                stockMap[s.model] = (stockMap[s.model] || 0) - s.qty;
+            });
+
+            let totalSales = salesData.reduce((sum, item) => sum + item.price, 0);
+            let totalPurchase = purchaseData.reduce((sum, item) => sum + item.price, 0);
+            let totalStockUnits = Object.values(stockMap).reduce((sum, qty) => sum + (qty > 0 ? qty : 0), 0);
+
+            document.getElementById('dash-sales').innerText = totalSales.toLocaleString();
+            document.getElementById('dash-purchase').innerText = totalPurchase.toLocaleString();
+            document.getElementById('dash-stock').innerText = totalStockUnits.toLocaleString();
+
+            const salesTable = document.getElementById('salesTableBody');
+            salesTable.innerHTML = salesData.map(s => `
+                <tr class="hover:bg-slate-900/60 transition-colors">
+                    <td class="py-4 pl-2 font-bold text-white">${s.customer}</td>
+                    <td class="py-4 text-slate-300 font-medium">${s.model}</td>
+                    <td class="py-4 font-mono font-extrabold text-slate-400">${s.qty}</td>
+                    <td class="py-4 text-right pr-2 text-emerald-400 font-mono font-extrabold">Rs. ${s.price.toLocaleString()}</td>
+                </tr>
+            `).join('');
+
+            const purchaseTable = document.getElementById('purchaseTableBody');
+            purchaseTable.innerHTML = purchaseData.map(p => `
+                <tr class="hover:bg-slate-900/60 transition-colors">
+                    <td class="py-4 pl-2 font-bold text-white">${p.vendor}</td>
+                    <td class="py-4 text-slate-300 font-medium">${p.model}</td>
+                    <td class="py-4 font-mono font-extrabold text-slate-400">${p.qty}</td>
+                    <td class="py-4 text-right pr-2 text-amber-400 font-mono font-extrabold">Rs. ${p.price.toLocaleString()}</td>
+                </tr>
+            `).join('');
+
+            const stockTable = document.getElementById('stockTableBody');
+            stockTable.innerHTML = Object.keys(stockMap).map(model => {
+                const qty = stockMap[model];
+                let badgeClass = "";
+                let badgeText = "";
+
+                if (qty > 3) {
+                    badgeClass = "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
+                    badgeText = "Sufficient Stock";
+                } else if (qty > 0) {
+                    badgeClass = "bg-amber-500/10 text-amber-400 border border-amber-500/20";
+                    badgeText = "Low Inventory Base";
+                } else {
+                    badgeClass = "bg-rose-500/10 text-rose-400 border border-rose-500/20";
+                    badgeText = "Depleted Out of Stock";
+                }
+
+                return `
+                    <tr class="hover:bg-slate-900/60 transition-colors">
+                        <td class="py-4 pl-2 font-bold text-white">${model}</td>
+                        <td class="py-4 font-mono font-extrabold ${qty <= 0 ? 'text-rose-400' : 'text-slate-300'}">${qty} Units</td>
+                        <td class="py-4 text-right pr-2">
+                            <span class="text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider ${badgeClass}">
+                                ${badgeText}
+                            </span>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            loadData();
+            renderAll();
+        });
+    </script>
+</body>
+</html>
